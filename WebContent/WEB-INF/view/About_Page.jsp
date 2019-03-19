@@ -8,6 +8,6 @@
 	</head>
 	
 	<body>
-		<p>This is the about page</p>
+		<p>This is the about page. Checking git</p>
 	</body>
 </html>
