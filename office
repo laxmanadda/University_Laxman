@@ -69,3 +69,23 @@ public void send_mail(String situation) {
 		
 		System.out.println("success");
 	}
+	
+When Git stores a new version of a project, it stores a new tree 
+It is built to be worked on simultaneously by many people, having multiple branches developed by individual developers, being merged, branched and re-merged constantly. 
+SHA-1 value
+
+
+
+clone fetch pull remote rebasing forking branching checkout
+fork vs branch
+
+
+file upload and saving
+cookies(1st and 3rd party)
+spa(how it is diff from ajax)
+migration from mysql to postgresql
+git (fetch pull branching merging )
+
+what is api endpoint
+https://github.com/arialdomartini/Back-End-Developer-Interview-Questions
+https://gist.github.com/jaseemabid/1321592
