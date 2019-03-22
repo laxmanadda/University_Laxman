@@ -45,3 +45,27 @@ https://www.tutorialspoint.com/jsp/jsp_file_uploading.htm -->file upload
 https://news.ycombinator.com/item?id=12292134
 important things are databases and spring and oops and DS
 rest everything just understand basics
+
+https://www.javatpoint.com/spring-java-mail-tutorial --multiple recipients
+public void send_mail(String situation) {
+		if(situation.equals("start_process"){
+			students+mac
+		}else if(situation.equals("program_offered") || situation.equals("program_scheduled")){
+			students mac
+		}else if(situation.equals("applied")){
+			student and mac
+		}else if(situation.equals("approved for interview")){
+			student
+		}else if(situation.equals("confirmed")){
+			student
+		}
+		
+		ApplicationContext context= new ClassPathXmlApplicationContext("applicationContext.xml");
+		MailMail m= (MailMail) context.getBean("mailMail");
+		
+		String sender="addalaxman@gmail.com";//write here your id
+		String receiver="laxmanadda26@gmail.com";//write here receiver id
+		m.sendMail(sender,receiver,"hi","welcome");
+		
+		System.out.println("success");
+	}
