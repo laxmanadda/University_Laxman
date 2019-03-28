@@ -5,33 +5,45 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.laxman.project.entity.Application;
 import com.laxman.project.entity.Programs_Offered;
-import com.laxman.project.entity.User;
+import com.laxman.project.entity.Programs_scheduled;
+import com.laxman.project.entity.user;
 import com.laxman.project.service.student_service;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/s")
 public class Student_Controller {
 	
 	@Autowired
 	private student_service stud_service;
 	
-	@RequestMapping("/Create_Student_Account")
-	public String Creating_Account(Model model) {
-		User new_student=new User();
-		model.addAttribute("new_student",new_student);
-		return "account_creation_form";
-	}
-	
-	@RequestMapping("/create_account")
-	public String Saving_New_Account(@ModelAttribute("new_student") User new_student,Model model) {
-		stud_service.save_new_student(new_student);
-		return "redirect:/login";
+	@GetMapping("/student")
+	public String redirecting_student_page(@RequestParam("user_id") int id, Model model) {
+		
+		List<Programs_scheduled> not_applied=stud_service.get_programs_scheduled_student_not_applied(id);
+		
+		List<Programs_scheduled> interview_approval_waiting=stud_service.get_programs_scheduled_student_interview_approval_waiting(id);
+		
+		List<Programs_scheduled> confirmation_waiting=stud_service.get_programs_scheduled_student_confirmation_waiting(id);
+		
+		List<Programs_scheduled> confirmed=stud_service.get_programs_scheduled_student_confirmed(id);
+		
+		List<Programs_scheduled> rejected=stud_service.get_programs_scheduled_student_rejected(id);
+		
+		model.addAttribute("not_applied", not_applied);
+		model.addAttribute("fresh", interview_approval_waiting);
+		model.addAttribute("interview", confirmation_waiting);
+		model.addAttribute("confirmed", confirmed);
+		model.addAttribute("rejected", rejected);
+		model.addAttribute("user_id", id);
+		
+		return "student_page";
 	}
 	
 	@RequestMapping("/form_for_apply")
@@ -49,9 +61,9 @@ public class Student_Controller {
 		stud_service.save_application(app);
 		
 		Test test=new Test();
-		test.send_mail();
+		test.applied_mail(app);
 		model.addAttribute("user_id", app.getUser_id());
-		return "redirect:/student";
+		return "redirect:/s/student";
 	}
 	
 	

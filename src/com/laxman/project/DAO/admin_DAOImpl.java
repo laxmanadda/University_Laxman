@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.laxman.project.entity.Application;
 import com.laxman.project.entity.Programs_Offered;
 import com.laxman.project.entity.Programs_scheduled;
-import com.laxman.project.entity.User;
+import com.laxman.project.entity.user;
 import com.laxman.project.entity.start_end;
 
 @Repository
@@ -22,12 +22,12 @@ public class admin_DAOImpl implements admin_DAO {
 
 	@Override
 	@Transactional
-	public List<User> check_login(User user) {
+	public List<user> check_login(user user) {
 		Session session=sessionFactory.getCurrentSession();
 		String role="";
 		
 		String query = "from User u where u.user_name = :name and u.password= :pass";
-		List<User> result = session.createQuery(query).setParameter("name", user.getUser_name()).setParameter("pass",user.getPassword()).list();
+		List<user> result = session.createQuery(query).setParameter("name", user.getUser_name()).setParameter("pass",user.getPassword()).list();
 		if(!result.isEmpty()) {
 			role=result.get(0).getRole();
 		}

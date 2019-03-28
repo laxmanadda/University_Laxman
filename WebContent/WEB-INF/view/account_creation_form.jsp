@@ -78,6 +78,11 @@
 						</tr>
 						
 						<tr>
+							<td><label>Email: </label></td>
+							<td><form:input onfocusout="sendInfo()" path="email" cssClass="name"/><span id="isE"> </span></td>
+						</tr>
+						
+						<tr>
 							<td><label></label></td>
 							<td><input type="submit" value="Create" class="create"/></td>
 						</tr>
@@ -98,8 +103,7 @@
 					request=new ActiveXObject("Microsoft.XMLHTTP");  
 				}  
 				request.onreadystatechange= function (){ 
-					if(request.readyState==4 && request.status==404){ 
-						alert(request.getAllResponseHeaders());
+					if(request.readyState==4 && request.status==200){ 
 						if(xmlhttp.responseText == "\n\n\n\n\nUser already exists"){
 							document.getElementById("isE").innerHTML="User already Exists";
 							document.getElementById("isE").style.color = "red";	

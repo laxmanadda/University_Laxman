@@ -6,9 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.laxman.project.DAO.student_DAO;
+import com.laxman.project.DAO.student_DAOImpl;
 import com.laxman.project.entity.Application;
 import com.laxman.project.entity.Programs_scheduled;
-import com.laxman.project.entity.User;
+import com.laxman.project.entity.user;
 
 @Service
 public class student_serviceImpl implements student_service {
@@ -23,7 +24,7 @@ public class student_serviceImpl implements student_service {
 	}
 
 	@Override
-	public void save_new_student(User student) {
+	public void save_new_student(user student) {
 		student_dao.save_new_student(student);
 	}
 
@@ -50,6 +51,26 @@ public class student_serviceImpl implements student_service {
 	@Override
 	public List<Programs_scheduled> get_programs_scheduled_student_rejected(int id) {
 		return student_dao.get_programs_scheduled_student_rejected(id);
+	}
+
+	@Override
+	public String[] get_students_email() {		
+		return student_dao.get_students_email();
+	}
+
+	@Override
+	public List<Application> get_student(int app_id) {
+		return student_dao.get_student(app_id);
+	}
+
+	@Override
+	public List<Programs_scheduled> get_program_name(int app_id) {
+		return student_dao.get_program_name(app_id);
+	}
+
+	@Override
+	public List<user> get_student_id(String user_name) {
+		return student_dao.get_student_id(user_name);
 	}
 
 }

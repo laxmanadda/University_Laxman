@@ -16,30 +16,26 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="user")
-public class User {
+public class user {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@NotNull(message="User Name is required")
-	@Size(message="User Name is required")
 	@Column(name="user_name")
 	private String user_name;
 	
 	@Column(name="password")
 	private String password;
 	
+	@Column(name="email")
+	private String email;
+	
 	@Column(name="role")
 	private String role;
 	
-//	@OneToMany(fetch=FetchType.LAZY)
-//	@JoinColumn(name="user_id")
-//	private List<Application> apps;
-	
-	
-	public User() {
+	public user() {
 		
 	}
 
@@ -73,6 +69,14 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override

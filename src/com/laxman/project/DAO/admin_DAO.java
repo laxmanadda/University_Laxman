@@ -5,11 +5,11 @@ import java.util.List;
 import com.laxman.project.entity.Application;
 import com.laxman.project.entity.Programs_Offered;
 import com.laxman.project.entity.Programs_scheduled;
-import com.laxman.project.entity.User;
+import com.laxman.project.entity.user;
 import com.laxman.project.entity.start_end;
 
 public interface admin_DAO {
-	public List<User> check_login(User user);
+	public List<user> check_login(user user);
 
 	public List<Programs_Offered> get_programs_offered();
 

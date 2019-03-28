@@ -10,7 +10,7 @@ import com.laxman.project.DAO.admin_DAOImpl;
 import com.laxman.project.entity.Application;
 import com.laxman.project.entity.Programs_Offered;
 import com.laxman.project.entity.Programs_scheduled;
-import com.laxman.project.entity.User;
+import com.laxman.project.entity.user;
 import com.laxman.project.entity.start_end;
 
 @Service
@@ -21,7 +21,7 @@ public class admin_serviceImpl implements admin_service{
 	
 	
 	@Override
-	public List<User> check_login(User user) {
+	public List<user> check_login(user user) {
 		return user_dao.check_login(user);
 	}
 

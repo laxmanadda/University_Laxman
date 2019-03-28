@@ -18,7 +18,7 @@ import com.laxman.project.service.MAC_service;
 import com.laxman.project.service.admin_service;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/m")
 public class MAC_Controller {
 	@Autowired
 	private MAC_service mac_service;
@@ -69,26 +69,26 @@ public class MAC_Controller {
 	public String approve_fresh_applications(@RequestParam("App_id") int app_id,@RequestParam("schedule_id") int schedule_id,Model model) {
 		mac_service.approve_fresh_app(app_id,schedule_id);
 		Test test=new Test();
-		test.send_mail();
+		test.approved_mail(app_id);
 		model.addAttribute("status", "fresh");
 		model.addAttribute("program_name", "biology");
-		return "redirect:/mac_search";
+		return "redirect:/m/mac_search";
 	}
 	
 	@GetMapping("/reject_app")
 	public String reject_fresh_applications(@RequestParam("App_id") int app_id) {
 		mac_service.reject_app(app_id);
 		Test test=new Test();
-		test.send_mail();
-		return "redirect:/mac_search";
+		//test.send_mail();
+		return "redirect:/m/mac_search";
 	}
 	
 	@GetMapping("/approve_interview_app")
 	public String approve_interview_applications(@RequestParam("App_id") int app_id) {
 		mac_service.approve_interview_app(app_id);
 		Test test=new Test();
-		test.send_mail();
-		return "redirect:/mac_search";
+		test.confirmation_mail(app_id);
+		return "redirect:/m/mac_search";
 	}
 
 }
