@@ -111,3 +111,7 @@ Serverless really benefits from small and lightweight deployments- if you want t
 
 Another big driver for their popularity is the increasing adoption of containers (Docker), containers management systems (Kubernetes) and patterns such as API Gateway. 
 Suddenly, the services do not need to deal with as many problems as they used to.
+
+https://dzone.com/articles/building-simple-restful-api
+https://www.baeldung.com/spark-framework-rest-api
+https://softwareengineering.stackexchange.com/questions/287819/should-you-write-your-back-end-as-an-api
