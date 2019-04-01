@@ -94,3 +94,20 @@ https://gist.github.com/jaseemabid/1321592
 https://dzone.com/articles/building-simple-restful-api
 https://stackoverflow.com/questions/2122604/what-is-an-endpoint
 https://spring.io/guides/gs/consuming-rest/
+
+understand http methods
+testing university project with thousand of request simultaneously -->JMeter
+build rest api with spring and spark
+use the rest api which we build in the above step 
+spring jdbcTemplate
+why hibernate why spring
+spring basics
+rest basics internal working
+
+
+
+First of all- microframeworks are not yet mainstream. That may soon change especially with the rapid growth of interest in the Serverless Architectures. 
+Serverless really benefits from small and lightweight deployments- if you want to use Java in that context, microframeworks seem like a good choice.
+
+Another big driver for their popularity is the increasing adoption of containers (Docker), containers management systems (Kubernetes) and patterns such as API Gateway. 
+Suddenly, the services do not need to deal with as many problems as they used to.
