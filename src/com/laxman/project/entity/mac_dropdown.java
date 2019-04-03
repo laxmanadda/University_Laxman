@@ -28,7 +28,7 @@ public class mac_dropdown {
 		status_dropdown.put("fresh", "new_applications");
 		status_dropdown.put("interview", "interview_applications");
 		status_dropdown.put("confirmed", "confirmed_applications");
-		status_dropdown.put("rejected", "confirmed_applications");
+		status_dropdown.put("rejected", "rejected_applications");
 	}
 
 	public String getStatus() {

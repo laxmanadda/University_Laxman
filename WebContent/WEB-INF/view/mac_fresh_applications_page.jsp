@@ -100,8 +100,6 @@
 				<c:url var="approve_link" value="/approve_fresh_app">
 					<c:param name="App_id" value="${fresh_app.getApplication_id()}"/>
 					<c:param name="schedule_id" value="${fresh_app.getSchedule_program_id()}"/>
-					<%--<c:param name="status" value="${status}"/> --%>
-					<%--<c:param name="program_name" value="${program_name}"/> --%>
 				</c:url>
 				
 				<c:url var="reject_link" value="/reject_app">

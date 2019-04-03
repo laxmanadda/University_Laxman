@@ -24,6 +24,7 @@ import com.laxman.project.entity.user;
 import com.laxman.project.service.admin_service;
 import com.laxman.project.service.student_service;
 
+
 public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSuccessHandler{
 	
 	@Autowired 
@@ -93,13 +94,13 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
         			return "/login";
         		}
     		}else {
-    			infoBox("Application process hasn't started","Sorry");
-    			return "/login";
+    			//infoBox("Application process hasn't started","Sorry");
+    			return "/login/error";
     		}
         } else if (isAdmin) {
             return "/a/admin";
-        }else if (isMAC) {
-            return "/m/";
+        }else if (isMAC) {        	
+            return "/m/mac";
         } else {
             throw new IllegalStateException();
         }

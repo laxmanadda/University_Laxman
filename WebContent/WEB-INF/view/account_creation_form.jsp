@@ -69,7 +69,8 @@
 					<tbody>
 						<tr>
 							<td><label>User Name: </label></td>
-							<td><form:input onfocusout="sendInfo()" path="user_name" cssClass="name"/><span id="isE"> </span></td>
+							
+							<td><form:input onblur="sendInfo()" path="user_name" cssClass="name"/><span id="isE"> </span></td>
 						</tr>
 						
 						<tr>
@@ -95,6 +96,7 @@
 			var request;  
 			function sendInfo()  {  
 				var v=document.getElementsByClassName("name")[0].value;
+				System.out.println(v);
 				var url="account_creation_form.jsp?val="+v;				
 			  
 				if(window.XMLHttpRequest){  
@@ -102,9 +104,11 @@
 				}else if(window.ActiveXObject){  
 					request=new ActiveXObject("Microsoft.XMLHTTP");  
 				}  
-				request.onreadystatechange= function (){ 
-					if(request.readyState==4 && request.status==200){ 
-						if(xmlhttp.responseText == "\n\n\n\n\nUser already exists"){
+				request.onreadystatechange= function (){
+					System.out.println("came here");
+					if(request.readyState==4 && request.status==200){
+						System.out.println("success");
+						if(xmlhttp.responseText == "User already exists"){
 							document.getElementById("isE").innerHTML="User already Exists";
 							document.getElementById("isE").style.color = "red";	
 						}else{

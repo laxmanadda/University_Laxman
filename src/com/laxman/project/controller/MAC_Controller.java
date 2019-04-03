@@ -26,6 +26,24 @@ public class MAC_Controller {
 	@Autowired
 	private admin_service admin_service;
 	
+	@GetMapping("/mac")
+	public String mac_home(Model model) {
+		mac_dropdown mac_drop=new mac_dropdown();
+		
+		LinkedHashMap<String,String> programs_dropdown=new LinkedHashMap<String,String>();
+		
+		List<Programs_Offered> programs_offered=admin_service.get_programs_offered();
+		
+		for(Programs_Offered p:programs_offered) {
+			programs_dropdown.put(p.getProgramName(), p.getProgramName());
+		}
+		
+		mac_drop.setPrograms_dropdown(programs_dropdown);
+		
+		model.addAttribute("mac_drop",mac_drop );
+		return "mac_page";
+	}
+	
 	@GetMapping("/mac_search")
 	public String mac_shortlisting_applications(@RequestParam("program_name") String program_name,@RequestParam("status") String status, Model model) {
 		System.out.println(status+" "+program_name);
@@ -53,12 +71,14 @@ public class MAC_Controller {
 				return "mac_fresh_applications_page";
 			}else if(status.equals("interview")) {
 				return "mac_interview_applications_page";
-			}else if(status.equals("confirmed")) {
-				return "mac_confirmed_applications_page";
+			}else if(status.equals("confirmed") || status.equals("rejected")) {
+				return "mac_confirmed_rejected_applications_page";
 			}else {
-				return "mac_rejected_applications_page";
+				return "mac_page";
 			}
 		}else {
+			String no_applications_error="There are currently no applications corresponding to this program name and status";
+			model.addAttribute("no_app_error", no_applications_error);
 			return "mac_page";
 		}
 		

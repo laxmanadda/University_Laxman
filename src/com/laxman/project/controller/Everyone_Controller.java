@@ -1,6 +1,8 @@
 package com.laxman.project.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,7 +38,13 @@ public class Everyone_Controller {
 	
 	@RequestMapping("/create_account")
 	public String Saving_New_Account(@ModelAttribute("new_student") user new_student,Model model) {
-		stud_service.save_new_student(new_student);
-		return "redirect:/login";
+		PasswordEncoder encoder=new BCryptPasswordEncoder();
+		new_student.setPassword(encoder.encode(new_student.getPassword()));
+		try {
+			stud_service.save_new_student(new_student);
+			return "redirect:/login";
+		}catch(Exception e) {
+			return "redirect:/Create_Student_Account";
+		}
 	}
 }

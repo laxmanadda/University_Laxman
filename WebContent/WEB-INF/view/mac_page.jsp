@@ -30,6 +30,12 @@
 	
 	<body>
 		<div align="center" class="total">
+			<%
+				String error_msg=(String)request.getAttribute("no_app_error");  
+				if(error_msg!=null){
+					out.println("<font color=red size=4px>"+error_msg+"</font>");
+				}
+			%>
 			<h2>Select Program name and Application Type</h2>
 			<form:form action="mac_search" modelAttribute="mac_drop" method="GET">
 				<table>
