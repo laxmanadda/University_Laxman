@@ -126,3 +126,11 @@ which framework/language/tool to use in what situation
 3) create an app(can do it with eclipse no need for andriod studio)
 
 https://medium.freecodecamp.org/the-secret-to-being-a-top-developer-is-building-things-heres-a-list-of-fun-apps-to-build-aac61ac0736c
+
+jax-rs(and client api) and jax-b(xml data binding)
+jersey(can be used for implementing jax-rs) and spark and unirest
+
+https://www.reddit.com/r/java/comments/6ixhqe/recommendations_for_java_http_client_libraries/?depth=1
+http://unirest.io/java.html
+https://stackoverflow.com/questions/17980596/what-is-jaxb-and-jaxrs-how-are-they-related
+https://docs.oracle.com/javaee/7/tutorial/jaxrs-client001.htm
