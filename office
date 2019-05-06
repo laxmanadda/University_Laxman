@@ -134,3 +134,44 @@ https://www.reddit.com/r/java/comments/6ixhqe/recommendations_for_java_http_clie
 http://unirest.io/java.html
 https://stackoverflow.com/questions/17980596/what-is-jaxb-and-jaxrs-how-are-they-related
 https://docs.oracle.com/javaee/7/tutorial/jaxrs-client001.htm
+
+
+truncate and drop --> no roll back
+delete-->roll back
+
+if u want to delete everything-->drop
+if u want to remove only all records and no roll back --> truncate
+if u want to remove all/some records and roll back --> delete
+
+database vs schema
+how to roll back after using delete command
+transactions?
+mysql engines(innodb,myisam)
+to know which engine is being used--> 	USE <database>;
+										SHOW TABLE STATUS\G 
+
+set autocommit=0;-->when u add something and didn't commit it'll not get stored in the low level disk when session is ended;
+select @@autocommit from dual;
+
+any default query is a single statement autocommitted transaction; which means if you don't use 'start transaction' after every query statement commit is applied;
+so to make bunch of query statements as a transaction following acid properties --> use start transaction,commit and roll back commands;
+
+rollback; --> suppose u deleted rows in a table 1) when autocommit=1; --> you cannnot roll back
+                                                2) when autocommit=0; -->
+
+no fb,insta,youtube,masturbating
+just work,sleep,marriage and applications
+
+first matster mysql(simple commands to sql engine, 	joins indexing views functions)
+then theory part of relational databases-->codds rules,keys(dependency),normal forms, relatinal calculus, query optimization, transactions
+
+MA60050
+
+tricky questions eg: where vs having
+
+demos:
+
+distinct :  SELECT distinct country,city FROM Customers; (distinct pair of country and city)
+not clause : SELECT *FROM Customers where not country="Germany"
+delete vs drop vs truncate mysql
+https://www.geeksforgeeks.org/sql-ddl-dml-dcl-tcl-commands/
