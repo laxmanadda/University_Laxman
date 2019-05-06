@@ -175,3 +175,21 @@ distinct :  SELECT distinct country,city FROM Customers; (distinct pair of count
 not clause : SELECT *FROM Customers where not country="Germany"
 delete vs drop vs truncate mysql
 https://www.geeksforgeeks.org/sql-ddl-dml-dcl-tcl-commands/
+
+begin transaction
+
+/*few sql commands*/
+
+commit (once a transaction is in between begin and commit rollback is automatically done by mysql once an error occurs)
+
+(all these are tcl commands)
+commit
+rollback
+savepoint--rollback to a certain point rather than rolling back entire transaction
+start transaction
+
+These 2 things have to be understood very carefully and in depth...
+deadlock in mysql transactions
+locking of tables,rows
+
+sql fiddle
