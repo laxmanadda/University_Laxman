@@ -193,3 +193,57 @@ deadlock in mysql transactions
 locking of tables,rows
 
 sql fiddle
+
+
+
+
+
+
+
+
+
+
+
+Advanatges of Hibernate:
+
+	fast --> cache feature
+	HQL --> Database independent query language(if database name changed during the course of the project no need to change in the code)
+	automatic table creation (https://stackoverflow.com/questions/21069687/hibernate-auto-create-database/37187483)
+	simplifies joining tables(cascading)
+	hides sql details for simple commands(simple select,insert,delete,update)
+	
+Hibernate is implementation of JPA(it defines how a ORM should function and other rules)
+
+stages of a java object in hibernate(https://www.java4s.com/hibernate/life-cycle-of-pojo-class-objects-in-the-hibernate/):
+
+1) Transition : newly created obj not saved(no relation with the database)
+2) Persistent : saved in the database and associated with a session
+3) Detached : saved in the database but not associated with a session.(session is closed)
+
+https://www.tutorialspoint.com/hibernate/hibernate_sessions.htm
+session obj is used to get a physical connection to the database. session obj is created and not left alone for a long time because they are thread safe(will update below)
+
+session vs sessionFactory: session factory contains configuration details of the database. each database will have a sessionFactory while session will be for 
+each transaction of a database. session stores 2nd level cache while sessionFactory stores 1st level cache.
+
+SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();(if we have configuration file name different than hibernate.cfg.xml then we have to mention it inside configure() method)
+This sessionFactory object will have all information whatever we have provided in hibernate.cfg.xml file
+
+Named Query:
+
+It's like alias. Giving some name to a query string and using it whenever we want.(https://www.javatpoint.com/hibernate-named-query)
+
+
+Need some time to understand: cache Levels in hibernate: first,second and query caching
+second level(by default switched off) and query caching(by default switched off) speeds our app.
+
+Transactions in hibernate: 
+same as in mysql--> we will start a transaction run multiple sql queries and commit at the end. if error we will roll back all the queries.(https://www.javatpoint.com/hibernate-transaction-management-example)
+
+Mapping in hibernate:
+
+Projections and criteriain hibernate: 
+
+Java multithreading and thread safety:
+
+polymorphic queries
