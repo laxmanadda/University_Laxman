@@ -247,3 +247,70 @@ Projections and criteriain hibernate:
 Java multithreading and thread safety:
 
 polymorphic queries
+
+
+
+
+MySQL:
+
+all basic commands and corner cases
+try joins, views,indexing,transactions,stored functions and procedures,locking and deadlock, security permission on tables and databases,
+triggers,events,cronjob,caching
+
+theory topics query optimization,normalization,relational calculus(1 complete day learning)
+
+Hibernate:
+
+mongoDB:
+
+Spring Framework:
+
+oops concepts:
+lambda functions and filters;
+
+GIT:
+
+Protocols:
+
+HTTP,Socket(ajax),TCP
+http methods
+what is port?
+smtp vs http vs ftp
+understanding DNS servers
+making http request from your java code to a website
+web socket protocol(ws), why people still use http rather than sockets.
+http requeststate and status..
+
+
+api Building: 
+rest vs soap(these are just architectural rules for building web api's,understand these architecture rules)
+file uploading and saving in a local folder.
+tried spark and unirest for rest api, other options are spring rest,jax...
+tried gmail login
+scaling of your application:
+
+DS &Algo:
+have to try InstantMessaging,
+
+
+begin transaction
+
+/*few sql commands*/
+
+commit (once a transaction is in between begin and commit rollback is automatically done by mysql once an error occurs)
+
+(all these are tcl commands)
+commit
+rollback
+savepoint--rollback to a certain point rather than rolling back entire transaction
+start transaction
+
+These 2 things have to be understood very carefully and in depth...
+deadlock in mysql transactions
+locking of tables,rows
+
+sql fiddle
+
+electron --? bulding desktop apps using html javascript and css
+will start from basics --oops,mysql,hibernate,spring,api building,netoworking protocols,
+
