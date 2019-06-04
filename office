@@ -314,3 +314,26 @@ sql fiddle
 electron --? bulding desktop apps using html javascript and css
 will start from basics --oops,mysql,hibernate,spring,api building,netoworking protocols,
 
+
+photo frames
+
+servlets(difficult to add html inside java),jsp(no separation netween html and java),mvc(struts,spring.....)
+
+advantages ofusing hibernate with spring --> no need to write so many steps (https://www.javatpoint.com/hibernate-and-spring-integration) .(understand how spring eliminates all the steps)
+understand @transactional annotation on top of dao methods
+
+immutable thread safe -- session factory(understand). similarly session not thread safe
+current_session_context_class(thread) sets a session to a thread
+now getcurrentsession() uses session of that thread(what if there are multiple sessions in a single thread)
+opensession() creates a altogather new session
+
+At the end spring makes it easy and simple in using JDBC/Hibernate/REST/Creating web apps(MVC).....
+
+save(saving when the record is already present --> will it give error)
+saveorUpdate()
+update
+delete
+merge
+persist
+get()
+load()
