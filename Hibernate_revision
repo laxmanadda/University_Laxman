@@ -1,0 +1,53 @@
+topics are:
+1) session and session factory(different methods of session creation, getcurrentsession vs opensession()..)
+2) session interface methods and when to use which one (below 3 links)
+3) HQL vs Criteria Queries
+4) Mapping
+5) Caching
+6) transient,persistant and detached states of an hibernate object. (https://what-when-how.com/hibernate/working-with-objects-hibernate/ (see the diagram by scrolling down))
+
+
+https://www.journaldev.com/3481/hibernate-session-merge-vs-update-save-saveorupdate-persist-example (persist vs save && update vs merge)
+https://www.journaldev.com/3472/hibernate-session-get-vs-load-difference-with-examples  (get vs load)
+https://stackoverflow.com/questions/5862680/whats-the-advantage-of-persist-vs-save-in-hibernate (save vs persist)
+
+unedrstanding written below
+https://stackoverflow.com/questions/14581865/hibernate-commit-and-flush
+
+Session session = sessionFactory.openSession();
+Transaction tx = session.beginTransaction();
+
+for ( int i=0; i<100000; i++ ) {
+    Customer customer = new Customer(.....);
+    session.save(customer);
+    if ( i % 20 == 0 ) { //20, same as the JDBC batch size
+        //flush a batch of inserts and release memory:
+        session.flush();
+        session.clear();
+    }
+}
+
+tx.commit();
+session.close();
+
+flush is for synchronising in memory session data with the database, but it will not commit the changes--> after flushing if there are any error complete roll back will happen(because it's inside transaction). 
+flush will synchronise and remove the data from session. Main purpose of flush is to reduce the burden on tx.commit() as it may give outOfBound Exception when handling more records.
+commit = flush + committing. (but that flushing may give outOfBound exception that why we use flush explicitly)
+
+
+criteria queries:
+	1) regular save.update methods don't have filterations and restrictions, criteria queries provide them.
+	2) no need to write raw sql statements, similar obj oriented(writing will be less which one will be fast?)
+	3) Projections provide aggregate functions(avg,sum,min,max,...) and also extract only few columns from table.
+
+only select is done with criteria, no update, delete, insert possible but HQL it's possible
+
+I am not finding any reason to use criteria queries over HQL except that criteria queries are safe from SQL injections(almost everything which can be done with criteria queries can be done in HQL, without confusion :) 
+
+Native SQL is for using adtabase related key words or advantages which are not available in hibernate.
+
+
+Mapping:
+
+OneByOne :  Here for every instructor InstructorDetail obj has to be created(because oneByOne)
+understand all cascade types by testing, i think only delete cascading will be useful. 
