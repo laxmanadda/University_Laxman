@@ -51,3 +51,40 @@ Mapping:
 
 OneByOne :  Here for every instructor InstructorDetail obj has to be created(because oneByOne)
 understand all cascade types by testing, i think only delete cascading will be useful. 
+
+global wrt serviceDomain,sbu,country_name,local_grade is kept null if not present.
+when click on edit localgrade,globalgrade and projectDuration are visible but disabled
+search not working -- working now
+
+100505841
+100558850
+
+
+https://www.mkyong.com/spring/spring-loosely-coupled-example/
+
+1) in the first case if the class name changes we have make everywhere where this class is used for obj creation
+2) in spring thing we are creating obj with the help of bean id -- so if we have to change class name then we need to change only in xml
+3) in case 2 we need separate helper classes for both implementations of interface()
+
+https://stackoverflow.com/questions/9403155/what-is-dependency-injection-and-inversion-of-control-in-spring-framework
+
+Inversion of control -- > giving control for framework to create objects instead of our application code to create
+dependency injection is 1 way to achieve IOC (it's basically injecting objects)
+
+@autowiring --> if you use this no need to use application context and stuff. direct bean creation.
+context:component-scan --> if you mention this no need to write xml for creating beans. you can use directly by autowiring.it will create for all the class mentioned in the base-package attribute
+
+difference between
+1) controller vs RestController
+2) @service vs @repository
+3) https://www.codelooru.com/2010/10/what-does-mvcannotation-driven-do.html --> <mvc:annotation-driven>
+
+https://www.greycampus.com/blog/programming/top-spring-interview-questions-and-answers
+https://www.mkyong.com/spring/spring-dependency-injection-di/
+https://www.mkyong.com/spring/spring-loosely-coupled-example/
+https://stackoverflow.com/questions/9403155/what-is-dependency-injection-and-inversion-of-control-in-spring-framework
+https://www.journaldev.com/2623/spring-autowired-annotation
+https://springframework.guru/spring-framework-annotations/
+https://javabeat.net/spring-mvc-component-scan-annotations/
+https://stackoverflow.com/questions/7414794/difference-between-contextannotation-config-vs-contextcomponent-scan
+https://www.tutorialspoint.com/spring/spring_bean_life_cycle.htm
