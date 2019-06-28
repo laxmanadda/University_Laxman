@@ -88,3 +88,21 @@ https://springframework.guru/spring-framework-annotations/
 https://javabeat.net/spring-mvc-component-scan-annotations/
 https://stackoverflow.com/questions/7414794/difference-between-contextannotation-config-vs-contextcomponent-scan
 https://www.tutorialspoint.com/spring/spring_bean_life_cycle.htm
+
+
+https://docs.spring.io/spring/docs/4.0.x/spring-framework-reference/html/jdbc.html
+https://stackoverflow.com/questions/25948090/how-spring-security-add-configure-authenticationmanagerbuilder
+https://www.journaldev.com/8748/spring-security-role-based-access-authorization-example
+
+sarmahaj
+
+method level authorization
+sso authorization
+LDAP
+remember me(https://www.javatpoint.com/spring-security-remember-me)
+
+
+httpsecurity methods --login,logout,cookies,remember me, session, authorization
+password encoder
+ssh into server/other system
+try to hack so that you would the ways of finding loopholes in a website --> your website will be good
