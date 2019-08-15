@@ -36,11 +36,6 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
 	protected Log logger = LogFactory.getLog(this.getClass());
 	 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-   
-    public static void infoBox(String infoMessage, String titleBar){
-    	System.out.println("came here");
-        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
-    }
  
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException {
@@ -94,7 +89,6 @@ public class MySimpleUrlAuthenticationSuccessHandler implements AuthenticationSu
         			return "/login";
         		}
     		}else {
-    			//infoBox("Application process hasn't started","Sorry");
     			return "/login/error";
     		}
         } else if (isAdmin) {

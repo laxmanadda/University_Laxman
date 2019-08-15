@@ -20,6 +20,8 @@ public class AuthenticationService implements UserDetailsService {
 	@Autowired
 	private UserDAO userDAO;
 	
+	//UserDetailsService interface has only 1 method loadUserByUsername and we are overriding that
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		user userInfo = userDAO.getUserInfo(username);

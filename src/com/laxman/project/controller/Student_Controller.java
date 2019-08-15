@@ -1,5 +1,7 @@
 package com.laxman.project.controller;
 
+import java.io.PrintWriter;
+import java.sql.*;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -64,6 +67,29 @@ public class Student_Controller {
 		test.applied_mail(app);
 		model.addAttribute("user_id", app.getUser_id());
 		return "redirect:/s/student";
+	}
+	
+	@GetMapping("/check_user_name")
+	public void Check_User_Name(@RequestParam("val") String v,Model model) {
+		try{ 
+			PrintWriter out = new PrintWriter(System.out);
+			Class.forName("com.mysql.cj.jdbc.Driver");  
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/university","root","Prabhasraju1.");  
+			PreparedStatement ps=con.prepareStatement("select * from user where user_name=?");  
+			ps.setString(1,v);
+			ResultSet rs=ps.executeQuery();  
+			if(rs.first()){
+				System.out.println("exists");
+				//model.addAttribute("there", "User already exists");
+				out.print("User already Exists");
+	        }else{
+	        	model.addAttribute("there", "User name is valid");
+	        }
+			con.close();
+		}catch(Exception e){
+			System.out.println("exception");
+			e.printStackTrace();
+		}
 	}
 	
 	

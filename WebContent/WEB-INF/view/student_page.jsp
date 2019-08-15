@@ -7,33 +7,7 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Programs Offered by Lakshman Adda University</title>
-		<style>
-			#customers {
-			  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-			  border-collapse: collapse;
-			  width: 100%;
-			  margin-top:20px;
-			  
-			}
-			
-			#customers td, #customers th {
-			  border: 1px solid #ddd;
-			  padding: 8px;
-			}
-			
-			#customers tr:nth-child(even){background-color: #f2f2f2;}
-			
-			#customers tr:hover {background-color: #ddd;}
-			
-			#customers th {
-			  padding-top: 12px;
-			  padding-bottom: 12px;
-			  text-align: left;
-			  background-color: #4CAF50;
-			  color: white;
-			}
-		
-		</style>
+		<link href="<c:url value="/resources/Student.css"/>" rel="stylesheet">
 	</head>
 	<body>
 		<a style="position:relative;left:1200px;top:15px;font-size:20px;color:green;text-decoration:none" href="/University_Laxman/Logout">Logout</a>

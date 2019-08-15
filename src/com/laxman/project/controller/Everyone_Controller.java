@@ -24,6 +24,12 @@ public class Everyone_Controller {
 		return "About_Page";
 	}
 	
+	@GetMapping("/login")
+	public String Login_Page() {
+		System.out.println("login page");
+		return "login";
+	}
+	
 	@GetMapping("/")
 	public String display_welcome_page() {
 		return "index";
@@ -46,5 +52,10 @@ public class Everyone_Controller {
 		}catch(Exception e) {
 			return "redirect:/Create_Student_Account";
 		}
+	}
+	
+	@RequestMapping("/test")
+	public String test() {
+		return "Test";
 	}
 }

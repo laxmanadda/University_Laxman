@@ -22,16 +22,7 @@ import com.laxman.project.service.AuthenticationService;
 public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
-	private DataSource myDataSource;
-	
-	@Autowired
 	AuthenticationService authenticationService;
-	
-	@Bean("authenticationManager")
-    @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-            return super.authenticationManagerBean();
-    }
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder authenticationMgr) throws Exception {
@@ -46,17 +37,20 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-			.antMatchers("/","/About","/Create_Student_Account").permitAll()
+			.antMatchers("/","/About","/Create_Student_Account","/test","/s/check_user_name").permitAll()
 			.antMatchers("/a/**").hasAuthority("admin")
 			.antMatchers("/s/**").hasAuthority("student")
 			.antMatchers("/m/**").hasAuthority("mac")
 			.and()
 				.csrf().disable()
+				//for custom login page write .formLogin().loginPage("/login").loginProcessingURL("/doLogin").successHandler(myAuthenticationSuccessHandler);
+				//"/login" inside loginPage should be there in controller redirecting to login view. action of login view should be same as "/doLogin"(it can be anything but both should be same)
+				//we don't have to write any code for "/doLogin" once we click login button configureGlobal part will run.
 				.formLogin().successHandler(myAuthenticationSuccessHandler())
 				.failureUrl("/login?error")
 				.usernameParameter("username").passwordParameter("password")
 			.and()
-				.logout().logoutSuccessUrl("/loginPage?logout");
+				.logout().logoutSuccessUrl("/");
 		
 	}
 }

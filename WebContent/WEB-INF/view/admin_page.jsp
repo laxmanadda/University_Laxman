@@ -7,63 +7,12 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Home-Admin</title>
-		<style>
-			.start{
-				position:absolute;
-				left:850px;
-				top:20px;
-				border-radius: 5px;
-				border:none;
-				color: white;
-				background-color: green;
-				font-size :15px;
-				padding-left: 15px;
-				padding-right: 15px;
-				padding-top: 5px;
-				padding-bottom: 5px;
-			}
-			.program_offered{
-				position:relative;
-				top:40px;
-				padding-left:30px;
-			}
-			td{padding-bottom: .5em;}
-			
-			#customers {
-			  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-			  border-collapse: collapse;
-			  width: 100%;
-			  margin-top:20px;
-			  
-			}
-			
-			#customers td, #customers th {
-			  border: 1px solid #ddd;
-			  padding: 8px;
-			}
-			
-			#customers tr:nth-child(even){background-color: #f2f2f2;}
-			
-			#customers tr:hover {background-color: #ddd;}
-			
-			#customers th {
-			  padding-top: 12px;
-			  padding-bottom: 12px;
-			  text-align: left;
-			  background-color: #4CAF50;
-			  color: white;
-			}
-			
-			.program_offered a{
-				color:green;
-				text-decoration:none
-			}
-		</style>
+		<link href="<c:url value="/resources/Admin.css"/>" rel="stylesheet">
 	</head>
 	
 	<body>
 		
-		<a style="position:relative;left:1000px;top:15px;font-size:20px;color:green;text-decoration:none" href="/University_Laxman/Logout">Logout</a>
+		<a style="position:relative;left:1000px;top:15px;font-size:20px;color:green;text-decoration:none" href="/University_Laxman/logout">Logout</a>
 		
 		<input class="start" type="button" value="Start Process" onclick="window.location.href='admin_start';" <c:if test="${start}"><c:out value="disabled='disabled'"/></c:if>>
 		<%
@@ -73,7 +22,7 @@
 			}
 		%>
 		<div class="program_offered">
-			<a style="font-size:20px;margin:20px;" href="/University_Laxman/add_programs_offered">Add Program Offered</a><br>
+			<a style="font-size:20px;margin:20px;" href="/University_Laxman/a/add_programs_offered">Add Program Offered</a><br>
 			
 			<table id="customers">
 				<tr>
@@ -110,7 +59,7 @@
 		<br><br>
 			
 		<div class="program_offered">
-			<a style="font-size:20px;margin:20px;" href="/University_Laxman/add_programs_scheduled">Add Program Scheduled</a>
+			<a style="font-size:20px;margin:20px;" href="/University_Laxman/a/add_programs_scheduled">Add Program Scheduled</a>
 			<table id="customers">
 				<tr>
 					<th>schedule_program_id</th>

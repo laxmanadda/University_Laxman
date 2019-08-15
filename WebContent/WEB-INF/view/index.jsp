@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<title>Lakshman's University</title>
-		<style type="text/css">
+		<style>
 			a {
 				color: #6c757d;
 				font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -26,7 +26,7 @@
 				background-size: cover;
 			}
 		</style>
-		
+				
 	</head>
 	
 	<body>		
@@ -34,6 +34,7 @@
 			<a href="/University_Laxman/About">About</a>
 			<a href="/University_Laxman/Create_Student_Account">CreateAccount</a>
 			<a href="/University_Laxman/login">Login</a>
+			<a href="/University_Laxman/test">Test</a>
 		</div>		
 	</body>
 </html>

@@ -52,6 +52,9 @@
 				padding-top: 5px;
 				padding-bottom: 5px;
 			}
+			#test_span{
+				color:red;
+			}
 		</style>
 		
 	</head>
@@ -60,7 +63,8 @@
 		<div class="other_links">
 			<a href="/University_Laxman/About">About</a>
 			<a href="/University_Laxman/login">Login</a>
-		</div>
+		</div>		
+		
 		<div align="center" class="form">
 			<h2>Create your Student Account</h2>
 			<form:form name="new_user_form" action="create_account" modelAttribute="new_student" method="POST">
@@ -70,7 +74,7 @@
 						<tr>
 							<td><label>User Name: </label></td>
 							
-							<td><form:input onblur="sendInfo()" path="user_name" cssClass="name"/><span id="isE"> </span></td>
+							<td><form:input onkeyup="sendInfo()" path="user_name" cssClass="name"/><span id="isE"> </span></td>
 						</tr>
 						
 						<tr>
@@ -78,10 +82,7 @@
 							<td><form:input path="password" cssClass="pass"/></td>
 						</tr>
 						
-						<tr>
-							<td><label>Email: </label></td>
-							<td><form:input onfocusout="sendInfo()" path="email" cssClass="name"/><span id="isE"> </span></td>
-						</tr>
+						
 						
 						<tr>
 							<td><label></label></td>
@@ -95,9 +96,8 @@
 		<script>  
 			var request;  
 			function sendInfo()  {  
-				var v=document.getElementsByClassName("name")[0].value;
-				System.out.println(v);
-				var url="account_creation_form.jsp?val="+v;				
+				var v=document.forms["new_user_form"]["name"].value;
+				var url="user_name_check.jsp?val="+v;				
 			  
 				if(window.XMLHttpRequest){  
 					request=new XMLHttpRequest();  
@@ -105,16 +105,7 @@
 					request=new ActiveXObject("Microsoft.XMLHTTP");  
 				}  
 				request.onreadystatechange= function (){
-					System.out.println("came here");
-					if(request.readyState==4 && request.status==200){
-						System.out.println("success");
-						if(xmlhttp.responseText == "User already exists"){
-							document.getElementById("isE").innerHTML="User already Exists";
-							document.getElementById("isE").style.color = "red";	
-						}else{
-							document.getElementById("isE").innerHTML="User Name Available";
-                        	document.getElementById("isE").style.color = "green";
-                        }                             
+					if(request.readyState==4 && request.status==200){                             
 						document.getElementById("isE").innerHTML = xmlhttp.responseText;
 					}
 				}
@@ -125,10 +116,12 @@
 				}catch(e){
 					alert("Unable to connect to server");
 				}  
-			}  
-			  
-			  
-		  
+			} 
+			function test(){
+				System.out.println("came here");
+				var v=document.getElementByClass("test_class").value;
+				document.getElementById("test_span").innerHTML =v;
+			}
 		</script>
 		
 	</body>
